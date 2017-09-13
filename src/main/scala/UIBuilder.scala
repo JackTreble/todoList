@@ -17,7 +17,7 @@ object UIBuilder {
   }
 
   def add(content : String ) = {
-    newLineAppend(String.format("║%1$" + uiContentWidth + "s║", content))
+    newLineAppend(String.format("║%1$-" + uiContentWidth + "s║", content))
   }
 
   def newLineAppend(value : String) = {

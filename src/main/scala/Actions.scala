@@ -5,12 +5,12 @@ object Actions {
     ToDoState.addTask(new Task(title, description))
   }
 
-  def delete() = {
-    ToDoState.deleteTask(1)
+  def delete(taskIndex : Int) = {
+    ToDoState.deleteTask(taskIndex)
   }
 
-  def complete() = {
-    ToDoState.completeTask(1)
+  def complete(taskIndex : Int) = {
+    ToDoState.completeTask(taskIndex)
   }
 
   def quit() = {

@@ -1,31 +1,12 @@
 
 object ToDoList {
 
-  def toDoState : ToDoState = ToDoState.toDoState
-
   def main(args: Array[String]) {
-
-
-
+    UI.printToDoList()
     while (true){
-
+      Command.command()
+      UI.printToDoList()
     }
-
-    //Load TodoList
-/*
-    Actions.getInput()
-
-    //while()
-
-
-
-    llll.add.
-    todoList.addString("abc");
-
-    UI.welcome()
-
-
-      //Save TodoList*/
   }
 
 

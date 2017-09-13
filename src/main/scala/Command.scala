@@ -15,9 +15,11 @@ import scala.io.StdIn
   */
 object Command {
 
-  def actions(input : Array[String]) = input match {
-    case Array("quit") => Actions.quit()
-    case Array("add", _, _) => Actions.add()
+  def actionCommand(input : Array[String]) = input match {
+    case Array("quit") => Actions.quit
+    case Array("add", _, _) => Actions.add(input(1),input(2))
+    case Array("delete", _) => Actions.delete(input(1).toInt)
+    case Array("complete", _) => Actions.complete(input(1).toInt)
     case Array(_) => println("Error: Action Not Defined.")
   }
 
@@ -25,12 +27,12 @@ object Command {
     StdIn.readLine();
   }
 
-  def parseRawInput(rawInput : String): Array[String] = rawInput.split("[^\" ]+|(\"[^\"]*\")")
+  def parseRawInput(rawInput : String): Array[String] = rawInput.split(" ")
 
 
-  def actionCommand() = {
+  def command() = {
     val rawInput =  takeInput
     val parsedInput = parseRawInput(rawInput)
-    actions(parsedInput)
+    actionCommand(parsedInput)
   }
 }

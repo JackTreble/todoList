@@ -5,9 +5,15 @@ object UI {
     UIBuilder.printPage()
   }
 
-  def printToDoList(toDoSate : ToDoState): Unit ={
+  def printToDoList()= {
     UIBuilder.newPage("To Do List")
-   // toDoSate.toDoList.
+
+    for ((task, taskIndex) <- ToDoState.toDoState.toDoList.zipWithIndex) {
+      UIBuilder.add(taskIndex + ", " + task.title)
+      UIBuilder.add("--" + task.description)
+    }
+
+    UIBuilder.printPage()
   }
 
   def printTask(task : Task): Unit ={
