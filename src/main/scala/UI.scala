@@ -1,14 +1,23 @@
 object UI {
 
-  def welcome() = {
+  def printWelcome() = {
     UIBuilder.newPage("Welcome")
-    UIBuilder.add("doSomthing")
     UIBuilder.printPage()
   }
 
-  def toDoList(toDoSate : ToDoState): Unit ={
+  def printToDoList(toDoSate : ToDoState): Unit ={
     UIBuilder.newPage("To Do List")
    // toDoSate.toDoList.
+  }
+
+  def printTask(task : Task): Unit ={
+    UIBuilder.newPage("To Do List")
+    // toDoSate.toDoList.
+  }
+
+  def printHelp(toDoSate : ToDoState): Unit ={
+    UIBuilder.newPage("Help")
+    // toDoSate.toDoList.
   }
 
 }

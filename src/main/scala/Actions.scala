@@ -1,19 +1,19 @@
 
 object Actions {
 
-  def add () ={
-
+  def add(title: String, description: String) = {
+    ToDoState.addTask(new Task(title, description))
   }
 
-  def delete() ={
-
+  def delete() = {
+    ToDoState.deleteTask(1)
   }
 
-  def complete() ={
-
+  def complete() = {
+    ToDoState.completeTask(1)
   }
 
-  def quit() ={
+  def quit() = {
     System.exit(0)
   }
 }
