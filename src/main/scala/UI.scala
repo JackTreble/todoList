@@ -1,14 +1,11 @@
-object UI {
+import Task.Task
 
-  def printWelcome() = {
-    UIBuilder.newPage("Welcome")
-    UIBuilder.printPage()
-  }
+object UI {
 
   def printToDoList()= {
     UIBuilder.newPage("To Do List")
 
-    for ((task, taskIndex) <- ToDoState.toDoState.toDoList.zipWithIndex) {
+    for ((task, taskIndex) <- ToDoState.taskList().zipWithIndex) {
       UIBuilder.add(taskIndex + ", " + task.title)
       UIBuilder.add("--" + task.description)
     }

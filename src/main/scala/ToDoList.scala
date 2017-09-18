@@ -2,10 +2,14 @@
 object ToDoList {
 
   def main(args: Array[String]) {
-    UI.printToDoList()
+    ToDoState.loadState(Option.empty)
+
+
+
     while (true){
-      Command.command()
       UI.printToDoList()
+      Command.command()
+      ToDoState.saveState(Option.empty)
     }
   }
 
