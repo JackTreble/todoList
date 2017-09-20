@@ -9,7 +9,6 @@ case class Task (title : String, description : String, subTasks : List[SubTask] 
   def addSubtask(subTask : SubTask): Task = {
     copy(subTasks = subTask +: subTasks)
   }
-
-  //TODO
-  override def toString: String = super.toString
 }
+
+

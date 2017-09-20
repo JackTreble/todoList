@@ -4,7 +4,4 @@ case class SubTask(title : String, description : String, complete : Boolean) ext
   def completeTask: SubTask = {
     copy(complete = true)
   }
-
-  //TODO
-  override def toString: String = super.toString
 }
