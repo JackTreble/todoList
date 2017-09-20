@@ -1,7 +1,7 @@
 
 /**
   * This State class is for the core application settings,
-  * Might Split into sub setting states in the future
+  * Might Split into sub setting classes in the future
   */
 case class SettingsState(displaySubTasksOnMainList: Boolean = true,
                          displayCompletedTasks: Boolean = true,
@@ -17,7 +17,7 @@ object SettingsState extends StateJsonSerializer {
     settingsState
   }
 
-  implicit val defaultFileName = "todoState"
+  implicit val defaultFileName = "settingsState"
 
   override def saveState(fileName: Option[String] = None) = {
     doSaveState(fileName, settingsState)

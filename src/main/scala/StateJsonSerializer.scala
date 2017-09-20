@@ -5,7 +5,7 @@ import org.json4s.native.JsonMethods.parse
 import org.json4s.native.Serialization.write
 
 /**
-  * May be able to improve with more implicit values
+  * Saves and loads States to and from JSON
   */
 trait StateJsonSerializer {
 
@@ -37,6 +37,5 @@ trait StateJsonSerializer {
       new File(fileName.getOrElse(defaultFileName) + jsonExt)
     }
   }
-
 
 }
