@@ -1,4 +1,11 @@
-case class SettingsState(displaySubTasks: Boolean = true) {
+
+/**
+  * This State class is for the core application settings,
+  * Might Split into sub setting states in the future
+  */
+case class SettingsState(displaySubTasksOnMainList: Boolean = true,
+                         displayCompletedTasks: Boolean = true,
+                         displayCompletedSubTasks: Boolean = true) {
 
 }
 
@@ -6,7 +13,7 @@ object SettingsState extends StateJsonSerializer {
 
   implicit var settingsState = new SettingsState()
 
-  def getSettingsState() : SettingsState = {
+  def getSettingsState(): SettingsState = {
     settingsState
   }
 
