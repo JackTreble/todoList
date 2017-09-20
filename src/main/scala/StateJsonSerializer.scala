@@ -4,21 +4,24 @@ import org.json4s._
 import org.json4s.native.JsonMethods.parse
 import org.json4s.native.Serialization.write
 
-trait StateParser {
+/**
+  * May be able to improve with more implicit values
+  */
+trait StateJsonSerializer {
 
   private implicit val formats = DefaultFormats
 
   private val jsonExt = ".json"
 
-  def saveState(fileName: Option[String])
+  def saveState(fileName: Option[String] = None)
 
-  def loadState(fileName: Option[String])
+  def loadState(fileName: Option[String] = None)
 
   protected def doLoadState[E : Manifest](fileName: Option[String])(implicit defaultFileName: String): Option[E] = try {
     Some(parse(getJsonFile(fileName)).extract[E])
   } catch {
     case e: FileNotFoundException => println(fileName.getOrElse(defaultFileName) + " not found"); None;
-    case e: MappingException => println("Json File did not contain state"); None;
+    case e: MappingException => println("Json File did not contain state "); None;
   }
 
   protected def doSaveState(fileName: Option[String], stateToSave: AnyRef)(implicit defaultFileName: String) = {

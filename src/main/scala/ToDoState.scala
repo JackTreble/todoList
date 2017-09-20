@@ -7,6 +7,7 @@ case class ToDoState(username: String, toDoList: List[Task] = List()) {
     copy(toDoList = task +: toDoList)
   }
 
+  //TODO
   protected def deleteTask(taskIndex: Int): ToDoState = {
 
 
@@ -14,13 +15,14 @@ case class ToDoState(username: String, toDoList: List[Task] = List()) {
     copy()
   }
 
+  //TODO
   protected def completeTask(taskIndex: Int): ToDoState = {
     toDoList.apply(taskIndex)
     copy()
   }
 }
 
-object ToDoState extends StateParser {
+object ToDoState extends StateJsonSerializer {
   private var toDoState = ToDoState(username = "")
 
   def addTask(task: Task) = {
@@ -40,13 +42,12 @@ object ToDoState extends StateParser {
   }
 
   implicit val defaultFileName = "todoState"
-  implicit val est = ToDoState
 
-  override def saveState(fileName: Option[String]) = {
+  override def saveState(fileName: Option[String] = None) = {
     doSaveState(fileName, toDoState)
   }
 
-  override def loadState(fileName: Option[String]) = {
+  override def loadState(fileName: Option[String] = None) = {
     toDoState = doLoadState[ToDoState](fileName).getOrElse(toDoState)
   }
 }
