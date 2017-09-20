@@ -1,3 +1,5 @@
+package states.traits
+
 import java.io.{BufferedWriter, File, FileNotFoundException, FileWriter}
 
 import org.json4s._

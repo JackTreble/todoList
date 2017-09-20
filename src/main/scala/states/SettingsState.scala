@@ -1,3 +1,6 @@
+package states
+import traits.StateJsonSerializer
+
 
 /**
   * This State class is for the core application settings,

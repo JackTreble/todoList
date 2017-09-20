@@ -1,4 +1,4 @@
-package Task
+package tasks.traits
 
 trait ToDo {
   val title : String

@@ -1,4 +1,6 @@
-package Task
+package tasks
+
+import tasks.traits.ToDo
 
 case class Task (title : String, description : String, subTasks : List[SubTask] = List(), complete : Boolean = false) extends ToDo {
 

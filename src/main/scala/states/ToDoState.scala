@@ -1,4 +1,7 @@
-import Task.Task
+package states
+
+import states.traits.StateJsonSerializer
+import tasks.Task
 
 
 case class ToDoState(username: String, toDoList: List[Task] = List()) {
