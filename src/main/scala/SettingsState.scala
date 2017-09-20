@@ -12,9 +12,9 @@ object SettingsState extends StateJsonSerializer {
 
   implicit val defaultFileName = "todoState"
 
-//  override def saveState(fileName: Option[String] = None) = {
-//    doSaveState(fileName, settingsState)
-//  }
+  override def saveState(fileName: Option[String] = None) = {
+    doSaveState(fileName, settingsState)
+  }
 
   override def loadState(fileName: Option[String] = None) = {
     settingsState = doLoadState[SettingsState](fileName).getOrElse(settingsState)
