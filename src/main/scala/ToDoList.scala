@@ -1,3 +1,5 @@
+import actions.QuitAction
+import actions.traits.Action
 import states.{SettingsState, ToDoState}
 
 object ToDoList {
@@ -7,6 +9,16 @@ object ToDoList {
     ToDoState.loadState(Option.empty)
 
 
+
+
+    var action: Action;
+    do {
+
+      action = new QuitAction
+    } until((!action.isInstanceOf[QuitAction])
+    //print
+    //take input
+    //process input
     while (true){
       UI.printToDoList()
       Command.command()
