@@ -4,23 +4,23 @@ import states.traits.StateJsonSerializer
 import tasks.Task
 
 
-case class ToDoState(username: String, toDoList: List[Task] = List()) {
+case class ToDoState(username: String, tasks: List[Task] = List(), completedTasks: List[Task] = List()) {
 
   protected def addTask(task: Task): ToDoState = {
-    copy(toDoList = task +: toDoList)
+    copy(tasks = task +: tasks)
   }
 
   //TODO
   protected def deleteTask(taskIndex: Int): ToDoState = {
 
 
-    toDoList.apply(taskIndex)
+    tasks.apply(taskIndex)
     copy()
   }
 
   //TODO
   protected def completeTask(taskIndex: Int): ToDoState = {
-    toDoList.apply(taskIndex)
+    tasks.apply(taskIndex)
     copy()
   }
 }
@@ -41,7 +41,7 @@ object ToDoState extends StateJsonSerializer {
   }
 
   def taskList(): List[Task] = {
-    toDoState.toDoList
+    toDoState.tasks
   }
 
   implicit val defaultFileName = "todoState"
