@@ -1,29 +1,19 @@
 import actions.QuitAction
 import actions.traits.Action
-import states.{SettingsState, ToDoState}
+import states.{ProgramState, SettingsState, ToDoState}
 
 object ToDoList {
 
   def main(args: Array[String]) {
     SettingsState.loadState(Option.empty)
     ToDoState.loadState(Option.empty)
-
-
-
-
-    var action: Action;
+    //Print Welcome
     do {
-
-      action = new QuitAction
-    } until((!action.isInstanceOf[QuitAction])
-    //print
-    //take input
-    //process input
-    while (true){
       UI.printToDoList()
       Command.command()
       ToDoState.saveState(Option.empty)
-    }
+    } while(!ProgramState.isQuiting)
+    //Print Goodbye
   }
 
 
