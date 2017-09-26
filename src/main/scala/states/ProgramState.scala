@@ -1,7 +1,7 @@
 package states
 
 
-case class ProgramState(quiting : Boolean = false) {
+case class ProgramState(running : Boolean = true) {
 
 }
 
@@ -9,12 +9,12 @@ object ProgramState {
 
   private var programState = new ProgramState()
 
-  def setQuiting(quiting : Boolean) {
-    programState = programState.copy(quiting = true)
+  def stopRunning() {
+    programState = programState.copy(running = false)
   }
 
-  def isQuiting(): Boolean ={
-    programState.quiting
+  def isRunning(): Boolean ={
+    programState.running
   }
 
 }

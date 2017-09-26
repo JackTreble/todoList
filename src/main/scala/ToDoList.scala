@@ -12,7 +12,7 @@ object ToDoList {
       UI.printToDoList()
       Command.command()
       ToDoState.saveState(Option.empty)
-    } while(!ProgramState.isQuiting)
+    } while(ProgramState.isRunning)
     //Print Goodbye
   }
 
